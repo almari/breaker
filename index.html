@@ -1,0 +1,52 @@
+<html>
+  <body align='center'>
+    <canvas id='main_container'>
+      <p>
+        Hello there!
+      </p>
+    </canvas>
+  </body>
+  <script type='text/javascript'>
+    var c = document.getElementById("main_container");
+    var ctx = c.getContext("2d");
+
+    var brick_width = 30,
+        brick_height = 5,
+        brick_color = null,
+        brick_position_x = 130,
+        brick_position_y = 140;
+
+    var breakable_bricks = [];
+    var total_bricks = 56;
+    var b_bricks_width = brick_width / 2,
+        current_x = 10,
+        current_y = 10,
+        current_space = 5;
+
+
+    // create elements
+    ctx.fillStyle = brick_color;
+    ctx.fillRect(brick_position_x, brick_position_y, brick_width, brick_height);
+
+    for(i = 0; i < total_bricks; i++) {
+      ctx.fillStyle = 'red';
+      console.log(current_x);
+      ctx.fillRect(current_x, current_y, b_bricks_width, brick_height);
+      current_x += current_space + b_bricks_width;
+      if(current_x > 280) {
+        current_x = 10;
+        current_y += current_space + brick_height;
+      }
+
+    }
+
+    // Fill with gradient
+  </script>
+  <style type='text/css'>
+    #main_container {
+      border: 1px solid black;
+      width: 80%;
+      height: 80%;
+    }
+  </style>
+</html>
